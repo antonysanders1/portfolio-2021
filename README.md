@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Antony Sanders Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is my portfolio site.. I'll update this later :)
 
 ## Available Scripts
 
