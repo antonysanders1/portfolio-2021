@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-evenly'
     },
     socialIcon: {
-        height: 40,
-        width: 40,
-        //opacity: '80%',
+        height: 30,
+        width: 30,
+        filter: `opacity(0.8)`,
         '&:hover': {
             height: 50,
             width: 50,
@@ -81,7 +81,10 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: 0,
         left: 0,
-        animation: `$wave 5s ease`,
+        animation: `$wave 8s ease`,
+    },
+    textBox: {
+        animation: `$shapesFromLeft 4s ease`,
     },
     headerText:{
         color: 'white',
@@ -114,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
         
         "100%": {
           transform: "translateX(0)"
-        }
+        },
       },
     "@keyframes shapesFromRight": {
         "0%": {
@@ -189,14 +192,22 @@ const Header = () => {
             <Grid container item xs={12} className={classes.iconsHeader}>
                 <Grid xs={4} sm={6} md={8} lg={9} xl={10}></Grid>
                 <Grid xs={8} sm={6} md={4} lg={3} xl={2} className={classes.iconsWrapper}>
-                    <img className={classes.socialIcon} src='/images/linkedIn-wht.png' alt=''
-                        onClick={()=> window.open('https://www.linkedin.com/in/antonysanders/')}/>
-                    <img className={classes.socialIcon} src='/images/twitter-wht.png' alt=''
-                        onClick={()=> window.open('https://twitter.com/AntonySanders_')}/>
-                    <img className={classes.socialIcon} src='/images/github-wht.png' alt=''
-                        onClick={()=> window.open('https://github.com/antonysanders1')}/>
-                    <img className={classes.socialIcon} src='/images/resume-wht.png' alt=''
-                        onClick={()=> window.open('https://www.linkedin.com/in/antonysanders/')}/>
+                    <Tooltip title="LinkedIn">
+                        <img className={classes.socialIcon} src='/images/linkedIn-wht.png' alt=''
+                            onClick={()=> window.open('https://www.linkedin.com/in/antonysanders/')}/>
+                    </Tooltip>
+                    <Tooltip title="Twitter">
+                        <img className={classes.socialIcon} src='/images/twitter-wht.png' alt=''
+                            onClick={()=> window.open('https://twitter.com/AntonySanders_')}/>
+                    </Tooltip>
+                    <Tooltip title="Github">
+                        <img className={classes.socialIcon} src='/images/github-wht.png' alt=''
+                            onClick={()=> window.open('https://github.com/antonysanders1')}/>
+                    </Tooltip>
+                    <Tooltip title="Resume">
+                        <img className={classes.socialIcon} src='/images/resume-wht.png' alt=''
+                            onClick={()=> window.open('https://www.linkedin.com/in/antonysanders/')}/>
+                    </Tooltip>
                 </Grid>
             </Grid>
             <Grid container item xs={12} className={classes.contentWrapper}>
@@ -207,7 +218,7 @@ const Header = () => {
             </Grid>
 
             <Grid container item xs={12} style={{position: 'absolute', justifyContent:'flex-end', alignItems:'center', padding: 60}}>
-                <div style={{backgroundColor:'rgba(0, 0, 0, 0.75)', padding: 10,}}>
+                <div className={classes.textBox} style={{backgroundColor:'rgba(0, 0, 0, 0.75)', padding: 10,}}>
                     <Typography className={classes.headerText}>Hey, I'm <span className={classes.highlightedText}>Antony Sanders...</span>
                             <br/>
                             <span style={{fontSize:'calc(20px + 2.5vw)', minWidth:''}}>

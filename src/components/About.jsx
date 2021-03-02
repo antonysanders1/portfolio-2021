@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
       width: "inherit",
       minHeight: '700px',
       background: `white`,
-      justifyContent: 'center'
+      justifyContent: 'center',
+      overflow: 'hidden'
     },
     headerText:{
         color: 'white',

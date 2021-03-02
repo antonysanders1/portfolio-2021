@@ -8,9 +8,9 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       width: "inherit",
-      borderTop: '1px solid black',
       minHeight: '700px',
-      background: `white`,
+      background: `linear-gradient(0deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+      overflow: 'hidden'
     },
     
   }));
