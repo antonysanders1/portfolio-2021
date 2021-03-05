@@ -3,7 +3,7 @@ import {Grid, Typography, Button} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import {frameworks, languages, software} from './data'
+//import {frameworks, languages, software} from './data'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
 
   }));
 
-const Skills = () => {
+const Skills = ({software, frameworks, languages}) => {
     const classes = useStyles();
     const softwareSorted = software.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
     const frameworksSorted = frameworks.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0))
@@ -60,21 +60,21 @@ const Skills = () => {
           </Grid>
 
           <Grid container item xs={12} style={{flex:'1 0 auto'}}>
-            <Grid item sm={1} md={2}></Grid>
-            <Grid container item xs={12} sm={10} md={8}>
+            <Grid item sm={1} md={2} lg={1} xl={2}></Grid>
+            <Grid container item xs={12} sm={10} md={8} lg={10} xl={8}>
               <Grid container item xs={12} sm={6} md={4}>
                 <Grid item xs={12} style={{textAlign:'center'}}>
                   <Typography data-aos="flip-left" className={classes.skillsTitle}>LANGUAGES</Typography>
                 </Grid>
-                {languagesSorted && languagesSorted.map((fw, idx) => {
+                {languagesSorted && languagesSorted.map((lang, idx) => {
                   return(
-                    <div data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
+                    <div key={lang.title+idx} data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
                       <div style={{flex: '0 1 100px', display: 'flex', alignItems:'center', justifyContent:'center'}}>
-                        <img src={fw.src} alt={fw.title} style={{height:80}}/>
+                        <img src={lang.src} alt={lang.title} style={{height:80}}/>
 
                       </div>
                       <div style={{flex: '1 0 auto', textAlign:'center'}}>
-                        <Typography>{fw.title}</Typography>
+                        <Typography>{lang.title}</Typography>
                       </div>
                     </div>
                   )
@@ -87,7 +87,7 @@ const Skills = () => {
                 </Grid>
                 {frameworksSorted && frameworksSorted.map((fw, idx) => {
                   return(
-                    <div data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
+                    <div key={fw.title+idx} data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
                       <div style={{flex: '0 1 100px', display: 'flex', alignItems:'center', justifyContent:'center'}}>
                         <img src={fw.src} alt={fw.title} style={{height:80}}/>
 
@@ -104,15 +104,15 @@ const Skills = () => {
               <Grid item xs={12} style={{textAlign:'center'}}>
                   <Typography data-aos="flip-left" className={classes.skillsTitle}>SOFTWARE</Typography>
                 </Grid>
-                {softwareSorted && softwareSorted.map((fw, idx) => {
+                {softwareSorted && softwareSorted.map((sw, idx) => {
                   return(
-                    <div data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
+                    <div key={sw.title+idx} data-aos="fade-left" data-aos-delay={(idx*100).toString()} style={{height: 120, width: 100, display: 'flex', flexFlow:'column'}}>
                       <div style={{flex: '0 1 100px', display: 'flex', alignItems:'center', justifyContent:'center'}}>
-                        <img src={fw.src} alt={fw.title} style={{height:80}}/>
+                        <img src={sw.src} alt={sw.title} style={{height:80}}/>
 
                       </div>
                       <div style={{flex: '1 0 auto', textAlign:'center'}}>
-                        <Typography>{fw.title}</Typography>
+                        <Typography>{sw.title}</Typography>
                       </div>
                     </div>
                   )
@@ -120,7 +120,7 @@ const Skills = () => {
 
               </Grid>
             </Grid>
-            <Grid item sm={1} md={2}></Grid>
+            <Grid item sm={1} md={2} lg={1} xl={2}></Grid>
           </Grid>
           <Grid style={{flex:'1 1 auto', textAlign:'center', marginTop: 80, marginBottom: 80}}>
                 <Typography data-aos="fade-up" data-aos-duration="2000"  style={{fontStyle:'italic'}}>"I pride myself of learning new skills and becoming profficient enough <br/> to deliver quailty software to my clients and employers."</Typography>

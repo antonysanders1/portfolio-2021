@@ -19,6 +19,12 @@ import software4 from '../images/software/miro.png';
 import software5 from '../images/software/jira.png';
 import software6 from '../images/software/trello.png';
 
+import portImage1 from '../images/portfolio/taskcycle.png'
+import portImage2 from '../images/portfolio/hitstreamr.png'
+import portImage3 from '../images/portfolio/portfoli-yo.png'
+import portImage4 from '../images/portfolio/whetherweather.png'
+import portImage5 from '../images/portfolio/shopilator.png'
+
 
 export const languages = [
     { title: 'HTML', src: lang1 },
@@ -44,5 +50,68 @@ export const software = [
     { title: "Miro", src: software4 },
     { title: "Jira", src: software5 },
     { title: "Trello", src: software6 },
+
+]
+
+export const projects = [{
+        img: portImage1,
+        title: 'Task Cycle',
+        description: 'A task management system origionally developed to help streamline the house buying process. I took part in redesigning the front-end, fixing bugs, and implementing new features such as: Ad spaces on auth screens, the Tasks screen, and docusign e-signature functionality.',
+        note: 'Note: This is a private repository.',
+        langEnvSoft: ['Javascript', 'React', 'Material-UI', 'Context', 'Stripe', 'OAuth', 'Docusign', 'HelloSign'],
+        sourceCode: 'N/A',
+        url: 'https://mytaskcycle.com',
+        videoURL: '',
+        team: 'Collaboration',
+        collaborators: 'Matthew Dieffenderfer, Michael Jay, Antony Sanders'
+    },
+    {
+        img: portImage2,
+        title: 'HitStreamr: Mobile App',
+        description: 'A mobile music video streaming platform geared toward paying higher royalties to creators and charging less to their fans. I was the Founder and Lead Dev on a team of five. I was responsible for front-end design, testing, and deployment.',
+        note: 'Note: This company was dismantled after the COVID-19 outbreak.',
+        langEnvSoft: ['Java', 'XML', 'Android Studio', 'Firebase'],
+        sourceCode: 'https://github.com/HitStreamr/BETA-app',
+        url: 'https://play.google.com/store/apps/details?id=com.hitstreamr.hitstreamrbeta',
+        videoURL: 'https://www.youtube.com/watch?v=WC2cjAGa98A',
+        team: 'Collaboration',
+        collaborators: 'Antony Sanders, Anissa Alexander, Dionissia, Chaitanya, Divya'
+    },
+    {
+        img: portImage3,
+        title: 'Portfoli-Yo',
+        description: 'A portflio sharing site where users can share their works with the community. Inspirations for this site were Instagram and Dribbble.',
+        note: 'Note: This site is hosted on Heroku. Please allow it some time to load.',
+        langEnvSoft: ['Javascript', 'React', 'Material UI', 'Redux', 'Rails API', 'VS Code'],
+        sourceCode: '',
+        url: 'https://portfoli-yo.herokuapp.com/',
+        videoURL: 'https://www.youtube.com/watch?v=DgDs7AbwzzI',
+        team: 'Solo Project',
+        collaborators: ''
+    },
+    {
+        img: portImage4,
+        title: 'Whether Weather',
+        description: 'A simple weather detector. Search a city: get the temperature, cloud coverage, and wind speeds.',
+        note: '',
+        langEnvSoft: ['JavaScript', 'React', 'VS Code'],
+        sourceCode: '',
+        url: '',
+        videoURL: 'https://www.youtube.com/watch?v=pj2u2pfZXow',
+        team: 'Solo Project',
+        collaborators: ''
+    },
+    {
+        img: portImage5,
+        title: 'Shopilator',
+        description: 'A budget tracking tool to help users not exteed their shopping limits.',
+        note: '',
+        langEnvSoft: ['HTML', 'CSS', 'Ruby', 'Rails API', 'OAuth', 'VSCode'],
+        sourceCode: '',
+        url: '',
+        videoURL: 'https://www.youtube.com/watch?v=7eoNSeJiOEQ',
+        team: 'Solo Project',
+        collaborators: ''
+    },
 
 ]
