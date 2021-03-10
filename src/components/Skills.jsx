@@ -123,7 +123,7 @@ const Skills = ({software, frameworks, languages}) => {
             <Grid item sm={1} md={2} lg={1} xl={2}></Grid>
           </Grid>
           <Grid style={{flex:'1 1 auto', textAlign:'center', marginTop: 80, marginBottom: 80}}>
-                <Typography data-aos="fade-up" data-aos-duration="2000"  style={{fontStyle:'italic'}}>"I pride myself of learning new skills and becoming profficient enough <br/> to deliver quailty software to my clients and employers."</Typography>
+                <Typography data-aos="fade-up" data-aos-duration="2000"  style={{fontStyle:'italic'}}>"I pride myself on learning new skills and becoming profficient enough <br/> to deliver quailty software to my clients and employers."</Typography>
           </Grid>
         </Grid>
     )

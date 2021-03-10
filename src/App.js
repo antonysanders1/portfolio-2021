@@ -5,16 +5,18 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import {frameworks, languages, software, projects} from './components/data'
+import Scroll from './components/Scroll'
+import {frameworks, languages, software, projects, bio} from './components/data'
 
 
 function App() {
   return (
     <div>
+      <Scroll showBelow={250} />
       <Header/>
       <Skills frameworks={frameworks} languages={languages} software={software}/>
       <Projects projects={projects}/>
-      <About/>
+      <About bio={bio}/>
       <Contact/>
       <Footer/>
     </div>

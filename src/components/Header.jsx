@@ -206,7 +206,7 @@ const Header = () => {
                     </Tooltip>
                     <Tooltip title="Resume">
                         <img className={classes.socialIcon} src='/images/resume-wht.png' alt=''
-                            onClick={()=> window.open('https://www.linkedin.com/in/antonysanders/')}/>
+                            onClick={()=> window.open('https://drive.google.com/file/d/13gmbfkda-Nbkz9GYVnUrwwZ_gpn8RPeb/view?usp=sharing')}/>
                     </Tooltip>
                 </Grid>
             </Grid>

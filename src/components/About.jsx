@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
-import {Grid, Typography, Button} from '@material-ui/core';
+import PropTypes from 'prop-types';
+import {Grid, Typography, Button, Hidden, withWidth} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -8,8 +9,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
       padding: '2px 4px',
       display: 'flex',
+      flexFlow: 'column',
       width: "inherit",
-      minHeight: '700px',
+      height: '100vh',
       background: `white`,
       justifyContent: 'center',
       overflow: 'hidden'
@@ -23,41 +25,82 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: 1,
         //filter: `drop-shadow(2px 4px 6px ${theme.palette.primary.dark})`
     },
+    titleWrapper: {
+        marginTop: 20,
+        border: `8px solid ${theme.palette.primary.dark}`,
+        padding: 8,
+        textAlign:'center',
+        width:'fit-content',
+        height: 'fit-content',
+      },
+      title: {
+        fontSize: 40,
+        color: ` ${theme.palette.primary.main}`,
+        fontWeight: 'bold'
+      },
     highlightedText: {
         color: theme.palette.primary.light
-    },
+     },
+     bioWrapper: {
+        borderRadius:'8px', 
+        minHeight:'fit-content',
+        marginBottom:40 ,
+        padding:40, 
+        borderBottom: `10px solid ${theme.palette.secondary.main}`, 
+        borderRight: `10px solid ${theme.palette.secondary.main}`,
+     },
     
   }));
 
-const About = () => {
-    const classes = useStyles()
-    
-    const Header = () => {
-        const classes = useStyles();
-    
-        useEffect(() => {
-            Aos.init();
-        }, [])
-    }
+    const About = ({width, bio}) => {
+        const classes = useStyles()
+        
+        const Header = () => {
+            const classes = useStyles();
+        
+            useEffect(() => {
+                Aos.init();
+            }, [])
+        }
 
 
     return (
         <Grid container item xs={12} className={classes.root}>
-            <Grid item xs={2}></Grid>
-            <Grid container item md={5} direction='column' style={{display: 'flex', flexFlow:'column', textAlign:'right', justifyContent:'center', alignItems:'center', padding: '50px 0'}}>
-                <div data-aos="fade-up" data-aos-duration="1500" style={{flex:'0 1 80px', background:'black', padding: 8, width: 'inherit'}}>
-                    <Typography  className={classes.headerText}><span className={classes.highlightedText}>My </span>Story.</Typography>
-                </div>
-                <div style={{flex:'1 0 auto', borderRight: '10px solid #f9d22d', borderBottom: '10px solid #f9d22d', width: 'inherit'}}>
 
-                </div>
+            <Grid item xs={12} style={{flex: '0 1 180px',display: 'flex', justifyContent:'center', alignItems:'center'}}>
+                <Grid data-aos="flip-left" className={classes.titleWrapper} style={{marginBottom:20}}>
+                    <Typography className={classes.title}>My Story</Typography>
+              
+                </Grid>
+            </Grid>
 
+            <Grid container item xs={12} style={{position:'relative', flex:'1 0 auto', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                <Grid data-aos="fade-right" data-aos-delay="300" item xs={10} sm={8} md={6} lg={4} className={classes.bioWrapper}>
+                    {bio.map((p, idx) => {
+                        return(
+                        <Grid item xs={12} style={{marginBottom:20}}>
+                            <Typography>{p}</Typography>
+                        </Grid>
+                        )
+                    })}
+                </Grid>
+                <Hidden mdDown>
+                    {width === 'lg' ? 
+                    <img data-aos="fade-left" data-aos-delay="500" src="/images/antony-2.png" alt="antony" style={{height: '80%', position:'absolute', right: '22%', bottom: -7}}/>
+                    :
+                    <img data-aos="fade-left" data-aos-delay="500" src="/images/antony-2.png" alt="antony" style={{height: '80%', position:'absolute', right: '23%', bottom: -7}}/>
+                    
+                    }
+                </Hidden>
             </Grid>
-            <Grid item style={{postion: 'relative', }} data-aos="fade-left" data-aos-duration="1500" data-aos-delay="300" md={4}>
-                <img style={{position: 'absolute', bottom:-2, left: -15, height: '90%'}} src='/images/antony-2.png'/>
-            </Grid>
+
+            
          </Grid>
     )
 }
 
-export default About
+About.propTypes = {
+    width: PropTypes.oneOf(['lg', 'md', 'sm', 'xl', 'xs']).isRequired,
+  };
+
+export default withWidth()(About)
